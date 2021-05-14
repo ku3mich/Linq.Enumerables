@@ -8,5 +8,6 @@ namespace System.Linq
         public static IEnumerable<T> From<T>(params T[] items) => items;
         public static IEnumerable<T> From<T>(params IEnumerable<T>[] s) => s.Where(q => q != null).SelectMany(s => s);
         public static IEnumerable<T> From<T>([NotNull] IEnumerable<T> s, params T[] a) => s.Concat(a);
+        public static IEnumerable<T> From<T>(T s, params T[] a) => From(s).Concat(From(a));
     }
 }
