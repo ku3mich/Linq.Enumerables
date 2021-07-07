@@ -5,6 +5,15 @@
         <LangVersion>9.0</LangVersion>
     </PropertyGroup>
 
+    <PropertyGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+        <NoWarn>$(NoWarn);nullable</NoWarn>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0'">
+        <PackageReference Include="Nullable" Version="1.3.0" PrivateAssets="all" />
+    </ItemGroup>
+
     <ItemGroup>
         <PackageReference Update="SonarAnalyzer.CSharp" Version="8.*.*.*">
             <PrivateAssets>all</PrivateAssets>
